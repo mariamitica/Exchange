@@ -1,5 +1,4 @@
 class ExchangeController < ApplicationController
-
   def index
     get_currencies
   end
@@ -12,13 +11,9 @@ class ExchangeController < ApplicationController
   end
 
   def convert
-    @eu_bank = EuCentralBank.new
-    @eu_bank.update_rates("public/exchange_rates.xml")
-    if params[:amount].present?
-      @result = @eu_bank.exchange(params[:amount], params[:original_currency], params[:destination_currency])
-      respond_to do |format|
-        format.js
-      end
+    @result = @eu_bank.exchange(params[:amount], params[:original_currency], params[:destination_currency])
+    respond_to do |format|
+      format.js
     end
   end
 end

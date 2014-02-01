@@ -8,9 +8,6 @@ var Exchange = {
   },
 
   convert: function(){
-      $('.error').hide();
-      $('input[name=amount]').removeClass('inputError');
-      $('input[name=result]').val('');
       this.ajax_call($('select[name=original_currency]').val(), $('input[name=amount]').val(), $('select[name=destination_currency]').val());
   },
 
