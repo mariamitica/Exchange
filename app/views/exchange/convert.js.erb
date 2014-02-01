@@ -1,1 +1,3 @@
-$('input[name=result]').val("<%= escape_javascript(@result.fractional.to_s) %>");
+//$('input[name=result]').val("< %= escape_javascript(@result ? @result.fractional.to_s : '0') %>");
+
+$('input[name=result]').val("<%= escape_javascript(@result ? @result.to_s : '0.00') %>");

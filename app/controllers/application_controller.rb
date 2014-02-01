@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     @eu_bank = EuCentralBank.new
     @cache = "public/exchange_rates.xml"
     if File.exists?(@cache)
-      file = Nokogiri::XML(open(@cache))
-      unless Date.parse(file.css('Cube Cube')[0]['time']) > Date.today - 1.days
+      @file = Nokogiri::XML(open(@cache))
+      unless Date.parse(@file.css('Cube Cube')[0]['time']) > Date.today - 1.days
         @eu_bank.save_rates(@cache)
       end
     else
