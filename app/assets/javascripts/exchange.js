@@ -8,18 +8,14 @@ var Exchange = {
   },
 
   convert: function(){
-      this.ajax_call($('select[name=original_currency]').val(), $('input[name=amount]').val(), $('select[name=destination_currency]').val());
-  },
-
-  ajax_call: function(original_currency, amount, destination_currency){
-      $.ajax({
-          url:  "/convert",
-          data:{
-              original_currency: original_currency,
-              amount: amount,
-              destination_currency: destination_currency,
-          },
-          dataType:"script"
+    $.ajax({
+      url:  "/convert",
+      data:{
+          original_currency: $('select[name=original_currency]').val(),
+          amount: $('input[name=amount]').val(),
+          destination_currency:  $('select[name=destination_currency]').val()
+      },
+      dataType:"script"
       });
   }
 };

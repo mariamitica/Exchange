@@ -2,6 +2,10 @@ body{
     padding: 20px;
     background: #e5e5e5;
 }
+h2{
+    margin-left: 20px;
+    font-weight: bold;
+}
 .select{
     width: 100px;
 }

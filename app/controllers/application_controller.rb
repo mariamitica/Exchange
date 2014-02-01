@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
   def get_rates
     @eu_bank = EuCentralBank.new
     @cache = "public/exchange_rates.xml"
-    unless File.exists?(@cache)
-      @eu_bank.save_rates(@cache)
-    else
+    if File.exists?(@cache)
       file = Nokogiri::XML(open(@cache))
-      unless Date.parse(file.css('Cube Cube')[0]['time']) > Date.today - 1.days && #.tap {|doc| doc.xpath('gesmes:Envelope/xmlns:Cube/xmlns:Cube//xmlns:Cube') }
+      unless Date.parse(file.css('Cube Cube')[0]['time']) > Date.today - 1.days
         @eu_bank.save_rates(@cache)
       end
+    else
+      @eu_bank.save_rates(@cache)
     end
     @eu_bank.update_rates(@cache)
   end
