@@ -1,0 +1,6 @@
+<% if @result %>
+    $('input[name=result]').val("<%= escape_javascript(@result.fractional.to_s) %>");
+<% else %>
+    $('.error').show();
+    $('input[name=amount]').addClass('inputError');
+<% end %>

@@ -1,0 +1,19 @@
+body{
+    padding: 20px;
+    background: #e5e5e5;
+}
+.select{
+    width: 100px;
+}
+.mylabel{
+    margin-top: 10px;
+}
+.input {
+    width: 200px;
+}
+.error{
+    display: none;
+}
+.inputError{
+   border-color: #CF3A48;
+}
