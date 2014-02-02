@@ -12,7 +12,7 @@ class ExchangeController < ApplicationController
 
   def convert
     if (/^(\$)?((\d+)|(\d{1,3})(\,\d{3})*)(\.\d+)?$/).match(params[:amount])
-      @result = @eu_bank.exchange_float(params[:amount], params[:original_currency], params[:destination_currency])
+      @result = @eu_bank.exchange_float(params[:amount].gsub(',',''), params[:original_currency], params[:destination_currency])
       respond_to do |format|
         format.js
       end

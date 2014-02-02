@@ -1,3 +1,8 @@
 //$('input[name=result]').val("< %= escape_javascript(@result ? @result.fractional.to_s : '0') %>");
-
-$('input[name=result]').val("<%= escape_javascript(@result ? @result.to_s : '0.00') %>");
+<% if @result %>
+$('input[name=result]').val("<%= escape_javascript(@result.to_s) %>");
+<% else %>
+$('input[name=result]').val("<%= escape_javascript('0.00') %>");
+$('.error').show();
+$('input[name=amount]').addClass('error-input');
+<% end %>

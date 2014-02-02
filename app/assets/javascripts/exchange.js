@@ -8,6 +8,8 @@ var Exchange = {
   },
 
   convert: function(){
+    $('.error').hide();
+    $('input[name=amount]').removeClass('error-input');
     $.ajax({
       url:  "/convert",
       data:{

@@ -21,3 +21,9 @@ h2{
     overflow: hidden;
     background-color: #5e5e5e;
 }
+.error{
+    display: none;
+}
+.error-input{
+    border-color: #c9302c;
+}

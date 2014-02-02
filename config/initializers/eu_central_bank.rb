@@ -6,6 +6,7 @@ class EuCentralBank < Money::Bank::VariableExchange
     exchange_with_float(Money.new(cents, from_currency), to_currency)
   end
   def exchange_with_float(from, to_currency)
+    Money.infinite_precision = true
     rate = get_rate(from.currency, to_currency)
     unless rate
       from_base_rate, to_base_rate = nil, nil
